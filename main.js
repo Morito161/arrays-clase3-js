@@ -1,3 +1,10 @@
+// Agrega texto sin interpretar HTML.
+function mostrarLinea(texto) {
+    const item = document.createElement("li");
+    item.textContent = String(texto);
+    document.getElementById("resultado-arrays").appendChild(item);
+}
+
 const frutas = ['manzana', 'platano', 'naranja', 'espinaca', 'calabaza', 'chayote', 'calabaza'] 
 
 console.log(frutas)
@@ -48,8 +55,8 @@ frutas.unshift("granada")
 console.log(frutas)
 
 
+frutas.sort()
 for(let i = 0; i <frutas.length; i++){
-    frutas.sort()
     const fruta = frutas[i]
     console.log(fruta, '->', i)
     console.log("Total de frutas:", frutas.length);
@@ -99,11 +106,11 @@ const paises = [
 "Colombia","México","España","Francia","Alemania","Italia","China","Japón","India","Brasil"
 ];
 
+paises.sort()
 for(let i = 0; i <paises.length; i++){
-    paises.sort()
     const pais = paises[i]
     console.log(pais, '->', i)
-    document.write(pais, '->', i + "<br>")
+    mostrarLinea(`${pais} -> ${i}`)
     //console.log("Total de paises:", paises.length);
 }
 
@@ -118,9 +125,9 @@ for (let pais in conteos) {
     if (conteos[pais] > 1) {
         console.log(`${pais} se repite ${conteos[pais]} veces`)
         
-        document.write(`${pais} se repite ${conteos[pais]} veces<br>`)
+        mostrarLinea(`${pais} se repite ${conteos[pais]} veces`)
     }
 }
 
 console.log("Total de paises:", paises.length);
-document.write("Total de paises:", paises.length);
+mostrarLinea(`Total de paises: ${paises.length}`);
